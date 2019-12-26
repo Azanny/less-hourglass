@@ -1,0 +1,130 @@
+// Write all less code in this file
+// Import another styles from less files using @import "[NAME_OF_FILE].less
+
+body{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin:0;
+  padding: 0;
+  height:100vh;
+  width:100vw;
+  overflow: hidden;
+
+.hourglass{
+    // animation: name duration timing-function delay iteration-count direction fill-mode;
+    animation:clockspin 2s linear 1s infinite normal none;
+    .glass{
+      background:transparent;
+      border:10px solid rgb(49, 49, 92);
+      border-radius:50% 50% 50% 0;
+      width:100px;
+      height:100px;
+      overflow:hidden;
+      position: relative;
+
+      .bg{
+        background:rgb(49, 49, 92);
+        width:150px;
+        height:150px;
+      }
+
+      &::before{
+        content:'';
+        position: absolute;
+        background:rgb(104, 204, 235);
+        width:100%;
+        height:90%;
+          transform:rotate(45deg);
+        top:30px;
+        left:-25px;
+      }
+    }
+    .firstglass{
+      transform:rotate(-45deg);
+      &::before{
+        animation:firstpour 4s linear 2s infinite normal none;
+      }
+    }
+    .secondglass{
+      transform:rotate(135deg);
+      margin-top:35px;
+      &::before{
+
+        animation:secondpour 4s linear 2s infinite normal none;
+      }
+    }
+  }
+}
+
+
+
+@keyframes clockspin {
+  0% {
+    transform:rotate(45deg);
+      transform: rotate(0deg);
+    }
+    
+  70% {
+    transform:rotate(45deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    transform:rotate(45deg);
+      transform: rotate(180deg);
+    }
+  }
+
+
+  @keyframes firstpour{
+    0%{
+      transform:scale(1,1);
+      transform-origin: bottom left;
+    }
+    25%{
+      transform:scale(0,0);
+      transform-origin: bottom left;
+
+    }
+    50%{
+      transform:scale(0,0);
+      transform-origin: bottom left;
+    }
+    
+    75%{
+      transform:scale(1,1);
+      transform-origin: bottom left;
+
+    }
+    100%{
+      transform:scale(1,1);
+      transform-origin: bottom left;
+    }
+    
+  }
+  
+  @keyframes secondpour{
+    0%{
+      transform:scale(0,0);
+      transform-origin: bottom left;
+    }
+    25%{
+      transform:scale(1,1);
+      transform-origin: bottom left;
+
+    }
+    50%{
+      transform:scale(1,1);
+      transform-origin: bottom left;
+    }
+    75%{
+      transform:scale(0,0);
+      transform-origin: bottom left;
+
+    }
+    100%{
+      transform:scale(0,0);
+      transform-origin: bottom left;
+    }
+  }
