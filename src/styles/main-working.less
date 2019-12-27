@@ -1,0 +1,105 @@
+.sides(){
+  content: "";
+  width: 0; 
+  height: 0; 
+  display: block;
+  position: absolute; 
+  z-index: 30;
+  border-top: 70px solid transparent;
+  border-bottom: 70px solid transparent;
+
+}
+
+body {
+  background-color: #fff;
+.bars{
+  position: absolute;
+  width:100px;
+  height:25px;
+  box-sizing: border-box;
+  background-color: #525997;
+  border-radius: 30px;
+  border:7px solid #fff;
+  left:42%;
+  z-index:50;
+}
+.topbar{
+  top:100px;
+}
+.bottombar{
+  top:218px;
+}
+}
+
+.hourglass {
+  width: 100px;
+  height: 140px;
+  background-color: #525997;
+  margin: 100px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-animation: rotateGlass 4s infinite ease-in-out;
+  
+  &:before {
+    .sides();
+	  border-left: 45px solid #fff;
+  }
+
+  &:after {
+    .sides();
+    right: 0;
+	  border-right: 45px solid #fff;
+  }
+
+  .sand {
+    &:before {
+      content: "";
+      width: 100px;
+      background-color: #7dd5f0;    
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 50%;
+      z-index: 10;
+      -webkit-animation: dropsand 4s infinite ease-in-out;
+    }
+  
+
+  }
+}
+
+@-webkit-keyframes dropsand {
+  0% { 
+    bottom: 50%; 
+  }
+  35% {
+    bottom: 0;
+    top: 50%;
+  }
+  50% {
+    bottom: 0;
+    top: 50%;
+  }
+  85% {
+    top: 0;
+    bottom: 50%; 
+  } 
+}
+
+@-webkit-keyframes rotateGlass {
+  40% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  90% {
+    -webkit-transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}

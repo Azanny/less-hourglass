@@ -1,105 +1,154 @@
-.sides(){
-  content: "";
-  width: 0; 
-  height: 0; 
-  display: block;
-  position: absolute; 
-  z-index: 30;
-  border-top: 70px solid transparent;
-  border-bottom: 70px solid transparent;
+// Write all less code in this file
+// Import another styles from less files using @import "[NAME_OF_FILE].less
 
-}
-
-body {
-  background-color: #fff;
-.bars{
-  position: absolute;
-  width:100px;
-  height:25px;
-  box-sizing: border-box;
-  background-color: #525997;
-  border-radius: 30px;
-  border:7px solid #fff;
-  left:42%;
-  z-index:50;
-}
-.topbar{
-  top:100px;
-}
-.bottombar{
-  top:218px;
-}
-}
-
-.hourglass {
-  width: 100px;
-  height: 140px;
-  background-color: #525997;
-  margin: 100px auto;
-  position: relative;
+body{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin:0;
+  padding: 0;
+  height:100vh;
+  width:100vw;
   overflow: hidden;
-  border-radius: 50%;
-  -webkit-animation: rotateGlass 4s infinite ease-in-out;
-  
-  &:before {
-    .sides();
-	  border-left: 45px solid #fff;
-  }
 
-  &:after {
-    .sides();
-    right: 0;
-	  border-right: 45px solid #fff;
-  }
+.hourglass{
+    // animation: name duration timing-function delay iteration-count direction fill-mode;
+    animation:clockspin 10s linear 2s infinite normal none;
+    .glass{
+      background:transparent;
+      border:10px solid rgb(49, 49, 92);
+      border-radius:50% 50% 50% 0;
+      width:100px;
+      height:100px;
+      overflow:hidden;
+      position: relative;
 
-  .sand {
-    &:before {
-      content: "";
-      width: 100px;
-      background-color: #7dd5f0;    
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 50%;
-      z-index: 10;
-      -webkit-animation: dropsand 4s infinite ease-in-out;
+      .bg{
+        background:rgb(49, 49, 92);
+        width:150px;
+        height:150px;
+      }
+
+      .sand{
+        content:'';
+        position: absolute;
+        background:rgb(104, 204, 235);
+        width:140%;
+        height:90%;
+          transform:rotate(45deg);
+        top:30px;
+        left:-25px;
+      }
     }
-  
+    .firstglass{
+      transform:rotate(-45deg);
+      .sand{
+        animation:firstpour 10s linear 0s infinite normal none;
+      }
+    }
+    .secondglass{
+      transform:rotate(135deg);
+      margin-top:35px;
+      .sand{
 
+        animation:secondpour 10s linear 0s infinite normal none;
+      }
+    }
   }
+
+  .bars{
+    position: absolute;
+    width:150px;
+    height:40px;
+    box-sizing: border-box;
+    background-color: rgb(49, 49, 92);
+    border-radius: 30px;
+    border:10px solid #fff;
+    left:38%;
+    z-index:50;
+  }
+  .topbar{
+    top:70px;
+  }
+  .bottombar{
+    top:317px;
+  }
+
 }
 
-@-webkit-keyframes dropsand {
-  0% { 
-    bottom: 50%; 
-  }
-  35% {
-    bottom: 0;
-    top: 50%;
-  }
-  50% {
-    bottom: 0;
-    top: 50%;
-  }
-  85% {
-    top: 0;
-    bottom: 50%; 
-  } 
-}
 
-@-webkit-keyframes rotateGlass {
-  40% {
-    -webkit-transform: rotate(0deg);
+
+@keyframes clockspin {
+  0% {
+      transform: rotate(0deg);
+    }
+    
+  20% {
+    transform: rotate(180deg);
   }
   50% {
-    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
   }
-  90% {
-    -webkit-transform: rotate(180deg);
-  }
+  70% {
+      transform: rotate(360deg);
+    }
   100% {
-    -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
   }
-}
+
+  @-webkit-keyframes firstpour {
+    0% { 
+      top:30%;
+      left:-60%;
+    }
+    20% {
+      top: 150%;
+      left:-100%;
+    } 
+    40% {
+      top: 150%;
+      left:-100%;
+    } 
+    60% { 
+      top:30%;
+      left:-60%;
+    }
+    80% { 
+      top:30%;
+      left:-60%;
+    }
+    100% { 
+      top:30%;
+      left:-60%;
+    }
+  }
+
+
+  @-webkit-keyframes secondpour {
+    0% { 
+      top: 150%;
+      left:-100%;
+    }
+    20% {
+      top:30%;
+      left:-60%;
+    } 
+    40% {
+      top:30%;
+      left:-60%;
+    } 
+    60% { 
+      top: 150%;
+      left:-100%;
+    }
+    80% { 
+      top: 150%;
+      left:-100%;
+    }
+    100% { 
+      top: 150%;
+      left:-100%;
+    }
+  }
