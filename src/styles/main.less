@@ -14,7 +14,7 @@ body{
 
 .hourglass{
     // animation: name duration timing-function delay iteration-count direction fill-mode;
-    animation:clockspin 10s linear 2s infinite normal none;
+    animation:clockspin 8s linear 2s infinite normal none;
     .glass{
       background:transparent;
       border:10px solid rgb(49, 49, 92);
@@ -44,7 +44,7 @@ body{
     .firstglass{
       transform:rotate(-45deg);
       .sand{
-        animation:firstpour 10s linear 0s infinite normal none;
+        animation:firstpour 8s linear 0s infinite normal none;
       }
     }
     .secondglass{
@@ -52,27 +52,27 @@ body{
       margin-top:35px;
       .sand{
 
-        animation:secondpour 10s linear 0s infinite normal none;
+        animation:secondpour 8s linear 0s infinite normal none;
       }
     }
   }
 
   .bars{
-    position: absolute;
+    position: relative;
     width:150px;
     height:40px;
     box-sizing: border-box;
     background-color: rgb(49, 49, 92);
     border-radius: 30px;
     border:10px solid #fff;
-    left:38%;
+    // left:38%;
     z-index:50;
   }
   .topbar{
-    top:70px;
+    top:40px;
   }
   .bottombar{
-    top:317px;
+    top:-40px;
   }
 
 }
@@ -84,13 +84,13 @@ body{
       transform: rotate(0deg);
     }
     
-  20% {
+  25% {
     transform: rotate(180deg);
   }
   50% {
     transform: rotate(180deg);
   }
-  70% {
+  75% {
       transform: rotate(360deg);
     }
   100% {
@@ -103,19 +103,15 @@ body{
       top:30%;
       left:-60%;
     }
-    20% {
+    25% {
       top: 150%;
       left:-100%;
     } 
-    40% {
+    50% {
       top: 150%;
       left:-100%;
     } 
-    60% { 
-      top:30%;
-      left:-60%;
-    }
-    80% { 
+    75% { 
       top:30%;
       left:-60%;
     }
@@ -131,19 +127,15 @@ body{
       top: 150%;
       left:-100%;
     }
-    20% {
+    25% {
       top:30%;
       left:-60%;
     } 
-    40% {
+    50% {
       top:30%;
       left:-60%;
     } 
-    60% { 
-      top: 150%;
-      left:-100%;
-    }
-    80% { 
+    75% { 
       top: 150%;
       left:-100%;
     }
